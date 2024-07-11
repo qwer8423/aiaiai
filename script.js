@@ -35,7 +35,7 @@ function generateProblem() {
 }
 
 function checkAnswer() {
-  var answer = document.getElementById('answer').value;
+  var answer = document.getElementById('answer').value.trim(); // trim()으로 앞뒤 공백 제거
   var problemText = document.getElementById('problem').textContent;
   var correctAnswer;
 
@@ -57,7 +57,8 @@ function checkAnswer() {
   }
 
   var result;
-  if (parseFloat(answer) === correctAnswer) {
+  // 사용자 입력값을 숫자로 변환하여 비교 (parseFloat 대신 Number를 사용)
+  if (Number(answer) === correctAnswer) {
     result = '정답입니다!';
   } else {
     result = '틀렸습니다. 정답은 ' + correctAnswer + '입니다.';
